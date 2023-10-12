@@ -1,10 +1,10 @@
 import React from "react";
 import About from "./routes/about";
-import Signup from "./routes/signup";
 import Login from "./routes/login";
 import Navbar from "./navbar";
 import Services from "./routes/services";
 import Home from "./routes/home";
+import Register from "./routes/signup";
 // import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
     case "/about":
       component = <About />
       break
-    case "/signup":
-      component = <Signup />
+    case "/register":
+      component = <Register />
       break
     case "/login":
       component = <Login />

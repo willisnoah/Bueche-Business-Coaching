@@ -14,7 +14,7 @@ export default function ColorSchemesExample() {
                         <Nav.Link href="/about">About</Nav.Link>
                         <Nav.Link href="/services">Services</Nav.Link>
                         <Nav.Link href="/login">Login</Nav.Link>
-                        <Nav.Link href="/signup">Signup</Nav.Link>
+                        <Nav.Link href="/register">Register</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
