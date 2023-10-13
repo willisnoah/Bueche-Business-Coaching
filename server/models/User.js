@@ -2,8 +2,6 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 
-const User = require('./user');
-
 const userSchema = new Schema(
     {
       username: {
@@ -21,7 +19,7 @@ const userSchema = new Schema(
         type: String,
         required: true,
       },
-      savedAppts: [apptsSchema],
+      savedAppts: [{type: Schema.Types.ObjectId, ref:"Appoint"}],
     },
     {
       toJSON: {
