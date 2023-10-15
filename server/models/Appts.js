@@ -1,5 +1,6 @@
 const { Schema, model} = require('mongoose');
 
+// this creates a Schema
 const apptSchema = new Schema({
   user: 
     {

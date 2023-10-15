@@ -1,14 +1,13 @@
 import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from '../axios';
 import { useMutation } from "@apollo/client"
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth"
 
-const USER_REGEX = /./;
+const USER_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = '/register';
+
 
 const Register = () => {
     const [createUser, {error}]= useMutation(ADD_USER)
@@ -59,19 +58,7 @@ const Register = () => {
         try {
             const {data}= await createUser({variables:{username:user, password:pwd, email:user}})
             Auth.login(data.addUser.token)
-            // const response = await axios.post(REGISTER_URL,
-            //     JSON.stringify({ user, pwd }),
-            //     {
-            //         headers: { 'Content-Type': 'application/json' },
-            //         withCredentials: true
-            //     }
-            // );
-            // console.log(response?.data);
-            // console.log(response?.accessToken);
-            // console.log(JSON.stringify(response))
             setSuccess(true);
-            //clear state and controlled inputs
-            //need value attrib on inputs for this
             setUser('');
             setPwd('');
             setMatchPwd('');
@@ -102,7 +89,7 @@ const Register = () => {
                     <h1>Register</h1>
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="username">
-                            Username:
+                            Email:
                             <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
                             <FontAwesomeIcon icon={faTimes} className={validName || !user ? "hide" : "invalid"} />
                         </label>
@@ -121,9 +108,7 @@ const Register = () => {
                         />
                         <p id="uidnote" className={userFocus && user && !validName ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            4 to 24 characters.<br />
-                            Must begin with a letter.<br />
-                            Letters, numbers, underscores, hyphens allowed.
+                            Enter valid email.
                         </p>
 
 
@@ -177,7 +162,6 @@ const Register = () => {
                     <p>
                         Already registered?<br />
                         <span className="line">
-                            {/*put router link here*/}
                             <a href="/login">Login</a>
                         </span>
                     </p>
