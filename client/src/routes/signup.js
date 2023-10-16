@@ -8,7 +8,6 @@ import Auth from "../utils/auth"
 const USER_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-
 const Register = () => {
     const [createUser, {error}]= useMutation(ADD_USER)
     const userRef = useRef();
@@ -56,7 +55,7 @@ const Register = () => {
             return;
         }
         try {
-            const {data}= await createUser({variables:{username:user, password:pwd, email:user}})
+            const {data}= await createUser({variables:{password:pwd, email:user}})
             Auth.login(data.addUser.token)
             setSuccess(true);
             setUser('');

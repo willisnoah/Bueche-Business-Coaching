@@ -57,10 +57,10 @@ function App() {
   }
   return (
     <>
-    <ApolloProvider client={client}>
-    <Navbar />
-    {component}
-    </ApolloProvider>
+      <ApolloProvider client={client}>
+        <Navbar />
+        {component}
+      </ApolloProvider>
     </>
   )
 }

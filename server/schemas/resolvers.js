@@ -38,7 +38,10 @@ const resolvers = {
 
       const token = signToken(user);
       return { token, user };
-    }
+    },
+    // addAppt: async (parent, { user, email, time }) => {
+    //   const user = await Appoint.create(user)
+    // }
   }
 }
 

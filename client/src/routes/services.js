@@ -1,38 +1,92 @@
+import "./services.css"
+import calendar from "./appointments"
 export default function Services() {
     return (
         <>
-            <div mbsc-card>
-                <div className="mbsc-card-header">
-                    <h2 className="mbsc-card-title">Detailed Services</h2>
-                </div>
-                <div className="mbsc-card-content">
-                    Our past and current clients not only increase their income and productivity but
-                    gain networking opportunities and gain the skills to make their ideas a reality.
-
-                </div>
-
+            <div className="card">
+                <h1>Free Inital Consultation</h1>
+                <p className="price">$0</p>
+                <ul>
+                    <li>
+                        Discovery Call
+                    </li>
+                    <li>
+                        Zoom Venue
+                    </li>
+                    <li>
+                        60 minutes
+                    </li>
+                    <li>
+                        Easy Online Booking
+                    </li>
+                </ul>
+                <a href={calendar}><button>Book Now</button></a>
+                {/* <a href="/login"><button>Book now</button></a> */}
             </div>
-
-            <div className="md-card-bg">
-                <h2 className="md-card-title mbsc-align-center">Las Vegas</h2>
-                <h5 className="md-card-subtitle mbsc-align-center mbsc-bold">63 apartments available</h5>
+            <div className="card">
+                <h1>New Agent Plan</h1>
+                <p className="price">$149/month</p>
+                <ul>
+                    <li>
+                        90-day Plan
+                    </li>
+                    <li>
+                        Bi-weekly Coaching
+                    </li>
+                    <li>
+                        Free Scripts
+                    </li>
+                    <li>
+                        Free Buyer & Seller Presentations
+                    </li>
+                </ul>
+                <a href="/login"><button>Book now</button></a>
             </div>
-
-            <div mbsc-card>
-                <div className="mbsc-card-header">
-                    <div className="mbsc-card-title">Best places</div>
-                </div>
-                <div className="mbsc-card-content"> A view across the Turnagain Arm on Alaska's Kenai Peninsula.
-                </div>
+            <div className="card">
+                <h1>Monthly Accountability Plan</h1>
+                <p className="price">$399/month</p>
+                <ul>
+                    <li>
+                        Bi-weekly Coaching
+                    </li>
+                    <li>
+                        Financial Plan
+                    </li>
+                    <li>
+                        Marketing Plan
+                    </li>
+                    <li>
+                        Business Growth Plan
+                    </li>
+                    <li>
+                        Increase Revenue Plan
+                    </li>
+                </ul>
+                <p><button>Book now</button></p>
             </div>
+            <div className="card">
+                <h1>Increase Revenue Plan</h1>
+                <p className="price">$499/month</p>
 
-            <div mbsc-card>
-                <div className="mbsc-card-header">
-                    <h2 className="mbsc-card-title">15 minutes to work</h2>
-                </div>
-                <div className="mbsc-card-content mbsc-btn-group-block">
+                <ul>
+                    <li>
+                        Team Planning
+                    </li>
+                    <li>
+                        Bi-weekly Coaching
+                    </li>
+                    <li>
+                        Team Coaching
+                    </li>
+                    <li>
+                        Administrative Structuring & Planning
+                    </li>
+                    <li>
+                        Financial & Marketing Plan
+                    </li>
+                </ul>
 
-                </div>
+                <p><button>Book now</button></p>
             </div>
         </>
     )

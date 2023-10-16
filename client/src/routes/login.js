@@ -16,6 +16,7 @@ function App() {
         setIsLoggedin(true);
         setEmail('');
         setPassword('');
+        
     };
 
 
@@ -46,7 +47,6 @@ function App() {
                     <>
                         <h1>Success</h1>
                         <form action="/"> <button type="submit">Home</button> </form>
-
                     </>
                 )}
             </div>
