@@ -22,13 +22,22 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_APPT = gql`
-mutation addAppt($user: String!, $email: String!, $time: String!) {
-  addAppt(user: user, email: email, time: time) {
-    token
-    user {
-      _id
+export const GET_APPOINTMENTS = gql`
+  query GetAppointments {
+    appointments {
+      id
+      date
+      text
     }
   }
-}
+`;
+
+export const CREATE_APPOINTMENT = gql`
+  mutation CreateAppointment($date: String!, $text: String!) {
+    createAppointment(date: $date, text: $text) {
+      id
+      date
+      text
+    }
+  }
 `;

@@ -1,57 +1,74 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
+import auth from '../utils/auth';
 
-function App() {
+function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isLoggedin, setIsLoggedin] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(auth.loggedIn());
 
-    const login = (e) => {
-        e.preventDefault();
-        console.log(email, password);
-        const userData = {
-            email,
-            password,
-        };
-        localStorage.setItem('token-info', JSON.stringify(userData));
-        setIsLoggedin(true);
-        setEmail('');
-        setPassword('');
-        
+    const [loginUser, { error }] = useMutation(LOGIN_USER);
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const { data } = await loginUser({
+                variables: { email, password },
+            });
+            if (data.login.token) {
+                auth.login(data.login.token);
+                setIsLoggedIn(true);
+            } else {
+                // Handle authentication error
+                console.error('Authentication failed');
+            }
+        } catch (e) {
+            // Handle any errors that occurred during the mutation
+            console.error('Error:', e);
+        }
     };
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        if (name === 'email') {
+            setEmail(value);
+        } else if (name === 'password') {
+            setPassword(value);
+        }
+    };
+
+    const handleLogout = () => {
+        auth.logout();
+        setIsLoggedIn(false);
+    };
 
     return (
-        <>
-            <div style={{ textAlign: 'center' }}>
-                <h1>Login </h1>
-                {!isLoggedin ? (
-                    <> <form>
-                        <input
-                            type="email"
-                            onChange={(e) => setEmail(e.target.value)}
-                            value={email}
-                            placeholder="Email"
-                        />
-                        <input
-                            type="password"
-                            onChange={(e) => setPassword(e.target.value)}
-                            value={password}
-                            placeholder="Password"
-                        />
-                        <button type="submit" onClick={login}>
-                            Login
-                        </button>
-                    </form>
-                    </>
-                ) : (
-                    <>
-                        <h1>Success</h1>
-                        <form action="/"> <button type="submit">Home</button> </form>
-                    </>
-                )}
-            </div>
-        </>
+        <div style={{ textAlign: 'center' }}>
+            <h1>{isLoggedIn ? 'Success' : 'Login'}</h1>
+            {isLoggedIn ? (
+                <button onClick={handleLogout}>Logout</button>
+            ) : (
+                <form onSubmit={handleFormSubmit}>
+                    <input
+                        type="email"
+                        name="email"
+                        onChange={handleChange}
+                        value={email}
+                        placeholder="Email"
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        onChange={handleChange}
+                        value={password}
+                        placeholder="Password"
+                    />
+                    <button type="submit">Login</button>
+                </form>
+            )}
+        </div>
     );
 }
 
-export default App;
+export default Login;

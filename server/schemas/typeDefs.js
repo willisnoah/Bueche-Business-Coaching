@@ -5,23 +5,28 @@ const typeDefs = gql`
     _id: ID!
     email: String!
   }
-  type Appt {
+
+  type Appointment {
     _id: ID!
     time: String!
-    user: [User]
+    user: User
   }
+
   type Auth {
     token: ID!
     user: User
   }
+
   type Query {
     me: User
+    getAppointments: [Appointment]
   }
-  type Mutation {
-    login(email: String!, password: String!): Auth
-    addUser(email: String!, password: String!): Auth
-    addAppt(user: String!, email: String!, time: String!): Auth
 
+  type Mutation {
+    addUser(email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
+    addAppointment(time: String!): Appointment
   }
-  `;
+`;
+
 module.exports = typeDefs;
