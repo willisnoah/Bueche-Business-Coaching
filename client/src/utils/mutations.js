@@ -23,21 +23,19 @@ export const ADD_USER = gql`
 `;
 
 export const GET_APPOINTMENTS = gql`
-  query GetAppointments {
-    appointments {
-      id
+  mutation GetAppointments {
+    getAppointments {
+      _id
       date
-      text
     }
   }
 `;
 
-export const CREATE_APPOINTMENT = gql`
-  mutation CreateAppointment($date: String!, $text: String!) {
-    createAppointment(date: $date, text: $text) {
-      id
+export const ADD_APPOINTMENT = gql`
+  mutation AddAppointment($date: String! ) {
+    addAppointment(date: $date ) {
+      _id
       date
-      text
     }
   }
 `;

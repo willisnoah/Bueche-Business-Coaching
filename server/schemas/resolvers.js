@@ -35,12 +35,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addAppointment: async (parent, { time }, context) => {
+    addAppointment: async (parent, { date }, context) => {
       if (!context.user) {
         throw new AuthenticationError('You must be logged in to add an appointment');
       }
-      
-      const appointment = await Appointment.create({ user: context.user._id, time });
+      const appointment = await Appointment.create({ user: context.user._id, date });
       return appointment;
     },
   },

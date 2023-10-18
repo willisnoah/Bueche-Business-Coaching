@@ -1,11 +1,20 @@
+.div {
+  display: block;
+}
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-  
+  width: 45%;
+  margin-right: 14px;
+  margin-bottom: 50px;
+  margin-left: 14px;
+  padding-bottom: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(177, 194, 219, 0.8);
+  border-radius: 5px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
 }
 
 .price {
@@ -14,18 +23,17 @@
 }
 
 .card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-image: linear-gradient(180deg, #df9b24, #9b6300);
-  text-align: center;
-  cursor: pointer;
   width: 100%;
-  font-size: 18px;
+  margin-top: 30px;
+  border-radius: 3px;
+  background-image: linear-gradient(180deg, #df9b24, #9b6300);
+  -webkit-transition: background-color 200ms ease;
+  transition: background-color 200ms ease;
+  font-size: 16px;
+  text-align: center;
 }
 
 .card button:hover {
-  opacity: 0.7;
+  background-image: linear-gradient(180deg, #9b6300, #9b6300);
 }
 

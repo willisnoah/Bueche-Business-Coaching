@@ -13,6 +13,6 @@ const apptSchema = new Schema({
   }
 })
 
-const Appt = model('Appoint', apptSchema);
+const Appt = model('appointments', apptSchema);
 
 module.exports = Appt;

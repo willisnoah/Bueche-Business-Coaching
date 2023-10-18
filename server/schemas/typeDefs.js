@@ -8,7 +8,7 @@ const typeDefs = gql`
 
   type Appointment {
     _id: ID!
-    time: String!
+    date: String!
     user: User
   }
 
@@ -19,13 +19,13 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    getAppointments: [Appointment]
+    getAppointments: Appointment
   }
 
   type Mutation {
     addUser(email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addAppointment(time: String!): Appointment
+    addAppointment(date: String!): Appointment
   }
 `;
 

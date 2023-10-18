@@ -40,10 +40,13 @@ export default function Navigate() {
                     <Nav className="">
                         <Nav.Link href="/about">About</Nav.Link>
                         <Nav.Link href="/services">Services</Nav.Link>
+                        {/* <Nav.Link href='/appointments'>Appointments</Nav.Link> */}
                         <Nav.Link onClick={handleLoginLogout}>
                             {isLoggedin ? 'Logout' : 'Login'}
                         </Nav.Link>
-                        <Nav.Link href="/register">Register</Nav.Link>
+                        {!isLoggedin && (<Nav.Link href='/register'>Register</Nav.Link>)}
+                        {}
+                       
                     </Nav>
                 </Container>
             </Navbar>
