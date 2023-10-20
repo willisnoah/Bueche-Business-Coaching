@@ -11,5 +11,8 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
     "dev": "npm start dev"
+  },
+  "dependencies": {
+    "heroku": "^8.6.0"
   }
 }
