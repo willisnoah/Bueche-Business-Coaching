@@ -13,6 +13,7 @@
     "@userfront/core": "^0.6.6",
     "axios": "^1.5.1",
     "bootstrap": "^5.3.2",
+    "express": "^4.18.2",
     "graphql": "^15.4.0",
     "jwt-decode": "^3.1.2",
     "nodemailer": "^6.9.6",
@@ -50,7 +51,6 @@
     ]
   },
   "main": "index.js",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
