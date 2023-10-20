@@ -12,6 +12,9 @@ const server = new ApolloServer({
   context: authMiddleware,
   introspection: true
 });
+require("dotenv").config()
+
+
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

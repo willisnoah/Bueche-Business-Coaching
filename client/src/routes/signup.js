@@ -9,7 +9,7 @@ const USER_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
 const Register = () => {
-    const [createUser, {error}]= useMutation(ADD_USER)
+    const [createUser, { error }] = useMutation(ADD_USER)
     const userRef = useRef();
     const errRef = useRef();
 
@@ -55,7 +55,7 @@ const Register = () => {
             return;
         }
         try {
-            const {data}= await createUser({variables:{password:pwd, email:user}})
+            const { data } = await createUser({ variables: { password: pwd, email: user } })
             Auth.login(data.addUser.token)
             setSuccess(true);
             setUser('');
@@ -131,9 +131,10 @@ const Register = () => {
                             <FontAwesomeIcon icon={faInfoCircle} />
                             8 to 24 characters.<br />
                             Must include uppercase and lowercase letters, a number and a special character.<br />
-                            Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
+                            Allowed special characters: <span aria-label="exclamation mark">!</span>
+                            <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span>
+                            <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
                         </p>
-
 
                         <label htmlFor="confirm_pwd">
                             Confirm Password:

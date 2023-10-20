@@ -3,19 +3,19 @@ import Navbar from "./navbar";
 import Services from "./routes/services";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';  // Import Switch from react-router-dom
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';  
 import About from './routes/about';
 import Login from './routes/login';
 import Home from './routes/home';
 import Register from './routes/signup';
 import AppointmentCalendar from './routes/appointmentCalendar';
 
-import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
 
-if (process.env.NODE_ENV !== "production") {  // Adds messages only in a dev environment
-  loadDevMessages();
-  loadErrorMessages();
-}
+
+// const REACT_APP_BUECHE_BUSINESS_COACHING_API_KEY= process.env.REACT_APP_BUECHE_BUSINESS_COACHING_API_KEY
+
+
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',

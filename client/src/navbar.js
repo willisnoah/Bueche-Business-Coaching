@@ -34,7 +34,6 @@ export default function Navigate() {
                             alt="logo"
                             width="200"
                             height="200"
-                            class="navbar sticky-top"
                         />
                     </Navbar.Brand>
                     <Nav className="">
