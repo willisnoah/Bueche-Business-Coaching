@@ -14,8 +14,6 @@ const server = new ApolloServer({
 });
 require("dotenv").config()
 
-
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 // Serve up static assets

@@ -8,11 +8,8 @@
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
+    "install": "cd server && npm install && cd ./client && npm install",
     "build": "cd client && npm run build",
     "dev": "npm start dev"
-  },
-  "dependencies": {
-    "heroku": "^8.6.0"
   }
 }
